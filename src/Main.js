@@ -1,41 +1,47 @@
 function Main() {
   return (
     <main>
-      <section className="hero">
+      <section className="hero" style={{backgroundColor: '#495E57'}}>
         <div className="hero-content">
           <h1>Little Lemon</h1>
-          <h2>Chicago</h2>
-          <p>
+          <h2 style={{color: '#FFFFFF'}}>Chicago</h2>
+          <p className="text-lead" style={{color: '#EDEFEE'}}>
             We are a family owned Mediterranean restaurant,
             focused on traditional recipes served with a modern twist.
           </p>
-          <button className="hero-reserve-btn">
-            Reserve a Table
-          </button>
+          <button className="btn-primary">Reserve a Table</button>
         </div>
-        <div className="hero-image">
-          <img src="/hero-image.jpg" alt="Little Lemon food" />
+        <div>
+          <img 
+            className="hero-img"
+            src="/hero-image.jpg" 
+            alt="Little Lemon delicious food" 
+          />
         </div>
       </section>
 
       <section className="highlights">
-        <div className="highlights-header">
+        <div className="section-header">
           <h2>This Week's Specials!</h2>
-          <button className="online-menu-btn">Online Menu</button>
+          <button className="btn-secondary">Online Menu</button>
         </div>
         <div className="highlights-grid">
-          <div className="dish-card">
-            <img src="/greek-salad.jpg" alt="Greek Salad" />
-            <div className="dish-card-body">
-              <div className="dish-card-header">
+          <div className="card">
+            <img 
+              className="dish-img"
+              src="/greek-salad.jpg" 
+              alt="Greek Salad" 
+            />
+            <div className="card-body">
+              <div className="card-header">
                 <h3>Greek Salad</h3>
-                <span className="dish-price">$12.99</span>
+                <span className="price">$12.99</span>
               </div>
-              <p>The famous greek salad of crispy lettuce, 
-              peppers, olives and our Chicago style feta 
-              cheese, garnished with crunchy garlic and 
-              rosemary croutons.</p>
-              <button className="order-btn">Order a delivery</button>
+              <p className="text-small">
+                The famous greek salad of crispy lettuce, 
+                peppers, olives and our Chicago style feta cheese.
+              </p>
+              <button className="btn-small">Order a delivery</button>
             </div>
           </div>
         </div>
@@ -44,29 +50,44 @@ function Main() {
       <section className="testimonials">
         <h2>Testimonials</h2>
         <div className="testimonials-grid">
-          <div className="review-card">
-            <img src="/reviewer1.jpg" alt="Reviewer" />
-            <h4>Sarah Mitchell</h4>
-            <div className="review-stars">★★★★★</div>
-            <p>Amazing food and so easy to book online!</p>
+          <div className="card">
+            <div className="card-body">
+              <img 
+                className="avatar-img"
+                src="/reviewer1.jpg" 
+                alt="Sarah Mitchell" 
+              />
+              <h4>Sarah Mitchell</h4>
+              <div className="stars">★★★★★</div>
+              <p className="text-small">
+                Amazing food and so easy to book online!
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="about">
         <div className="about-grid">
-          <div className="about-content">
+          <div>
             <h2>A little bit about us!</h2>
             <p>
               Little Lemon is a charming neighbourhood bistro 
               that serves simple food and classic cocktails in 
-              a lively but casual environment. We would love 
-              to hear more about your experience with us.
+              a lively but casual environment.
             </p>
           </div>
           <div className="about-images">
-            <img src="/about-1.jpg" alt="Restaurant interior" />
-            <img src="/about-2.jpg" alt="Chef cooking" />
+            <img 
+              className="about-img"
+              src="/about-1.jpg" 
+              alt="Restaurant interior" 
+            />
+            <img 
+              className="about-img"
+              src="/about-2.jpg" 
+              alt="Chef cooking" 
+            />
           </div>
         </div>
       </section>
