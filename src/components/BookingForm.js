@@ -1,111 +1,109 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function BookingForm() {
-  const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    date: '',
-    time: '17:00',
-    guests: 1,
-    occasion: ''
-  });
+function BookingForm({ availableTimes, dispatch, submitForm }) {
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  // STEP 3 — State variable for each form field
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [guests, setGuests] = useState(1);
+  const [occasion, setOccasion] = useState("Birthday");
+
+  // Handle date change
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+    dispatch({
+      type: "UPDATE_TIMES",
+      date: e.target.value
+    });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Booking submitted:', formData);
-    navigate('/confirmed');
+    submitForm({ date, time, guests, occasion });
   };
 
   return (
-    <form 
-      className="booking-form" 
-      onSubmit={handleSubmit}
-    >
-      <div className="form-group">
-        <label htmlFor="date">
-          Choose date 
-          <span className="required-marker">*</span>
+    <form onSubmit={handleSubmit}>
+
+      {/* Date field */}
+      <div>
+        <label htmlFor="res-date">
+          Choose date
         </label>
         <input
           type="date"
-          id="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
+          id="res-date"
+          value={date}
+          onChange={handleDateChange}
           required
         />
       </div>
 
-      <div className="form-group">
-        <label htmlFor="time">
-          Choose time 
-          <span className="required-marker">*</span>
+      {/* Time field */}
+      <div>
+        <label htmlFor="res-time">
+          Choose time
         </label>
         <select
-          id="time"
-          name="time"
-          value={formData.time}
-          onChange={handleChange}
+          id="res-time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
           required
         >
-          <option value="17:00">5:00 PM</option>
-          <option value="18:00">6:00 PM</option>
-          <option value="19:00">7:00 PM</option>
-          <option value="20:00">8:00 PM</option>
-          <option value="21:00">9:00 PM</option>
+          {availableTimes.map((availableTime) => (
+            <option
+              key={availableTime}
+              value={availableTime}
+            >
+              {availableTime}
+            </option>
+          ))}
         </select>
       </div>
 
-      <div className="form-group">
+      {/* Number of guests field */}
+      <div>
         <label htmlFor="guests">
-          Number of guests 
-          <span className="required-marker">*</span>
+          Number of guests
         </label>
         <input
           type="number"
           id="guests"
-          name="guests"
+          placeholder="1"
           min="1"
           max="10"
-          value={formData.guests}
-          onChange={handleChange}
+          value={guests}
+          onChange={(e) => setGuests(e.target.value)}
           required
         />
-        <span className="field-hint">
-          Maximum 10 guests per booking
-        </span>
       </div>
 
-      <div className="form-group">
-        <label htmlFor="occasion">Occasion</label>
+      {/* Occasion field */}
+      <div>
+        <label htmlFor="occasion">
+          Occasion
+        </label>
         <select
           id="occasion"
-          name="occasion"
-          value={formData.occasion}
-          onChange={handleChange}
+          value={occasion}
+          onChange={(e) => setOccasion(e.target.value)}
         >
-          <option value="">Select an occasion (optional)</option>
-          <option value="birthday">Birthday</option>
-          <option value="engagement">Engagement</option>
-          <option value="anniversary">Anniversary</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
         </select>
       </div>
 
-      <button 
-        type="submit" 
-        className="btn-primary"
+      {/* Submit button */}
+      <button
+        type="submit"
+        aria-label="On Click"
       >
-        Make your reservation
+        Make Your Reservation
       </button>
+
     </form>
   );
 }
