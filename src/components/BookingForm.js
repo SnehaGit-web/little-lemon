@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { useState } from "react";
 
 function BookingForm({ availableTimes, dispatch, submitForm }) {
 
-  // STEP 3 — State variable for each form field
+  // Form field state variables
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
 
-  // Handle date change
+  // Handle date change and dispatch to update times
   const handleDateChange = (e) => {
-    setDate(e.target.value);
+    const selectedDate = e.target.value;
+    setDate(selectedDate);
+    // Dispatch the date change to update available times
     dispatch({
       type: "UPDATE_TIMES",
-      date: e.target.value
+      date: selectedDate
     });
   };
 
@@ -29,7 +29,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
     <form onSubmit={handleSubmit}>
 
       {/* Date field */}
-      <div>
+      <div className="form-group">
         <label htmlFor="res-date">
           Choose date
         </label>
@@ -42,8 +42,8 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         />
       </div>
 
-      {/* Time field */}
-      <div>
+      {/* Time field — populated from availableTimes prop */}
+      <div className="form-group">
         <label htmlFor="res-time">
           Choose time
         </label>
@@ -53,6 +53,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
           onChange={(e) => setTime(e.target.value)}
           required
         >
+          <option value="">Select a time</option>
           {availableTimes.map((availableTime) => (
             <option
               key={availableTime}
@@ -65,7 +66,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       </div>
 
       {/* Number of guests field */}
-      <div>
+      <div className="form-group">
         <label htmlFor="guests">
           Number of guests
         </label>
@@ -82,7 +83,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       </div>
 
       {/* Occasion field */}
-      <div>
+      <div className="form-group">
         <label htmlFor="occasion">
           Occasion
         </label>
@@ -93,12 +94,14 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         >
           <option value="Birthday">Birthday</option>
           <option value="Anniversary">Anniversary</option>
+          <option value="Engagement">Engagement</option>
         </select>
       </div>
 
       {/* Submit button */}
       <button
         type="submit"
+        className="btn-primary"
         aria-label="On Click"
       >
         Make Your Reservation
