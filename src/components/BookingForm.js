@@ -6,7 +6,6 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
 
-  // Dispatch date change to update available times via API
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     setDate(selectedDate);
@@ -17,22 +16,22 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    submitForm({
-      date,
-      time,
-      guests,
-      occasion
-    });
+  e.preventDefault();
+  console.log("Form submitted");
+  console.log("submitForm type:", typeof submitForm);
+  console.log("Form data:", { date, time, guests, occasion });
+  
+  if (typeof submitForm === "function") {
+    submitForm({ date, time, guests, occasion });
+  } else {
+    console.error("submitForm is not a function:", submitForm);
+  }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-
       <div className="form-group">
-        <label htmlFor="res-date">
-          Choose date
-        </label>
+        <label htmlFor="res-date">Choose date</label>
         <input
           type="date"
           id="res-date"
@@ -43,9 +42,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       </div>
 
       <div className="form-group">
-        <label htmlFor="res-time">
-          Choose time
-        </label>
+        <label htmlFor="res-time">Choose time</label>
         <select
           id="res-time"
           value={time}
@@ -65,9 +62,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       </div>
 
       <div className="form-group">
-        <label htmlFor="guests">
-          Number of guests
-        </label>
+        <label htmlFor="guests">Number of guests</label>
         <input
           type="number"
           id="guests"
@@ -81,9 +76,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       </div>
 
       <div className="form-group">
-        <label htmlFor="occasion">
-          Occasion
-        </label>
+        <label htmlFor="occasion">Occasion</label>
         <select
           id="occasion"
           value={occasion}
@@ -102,7 +95,6 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       >
         Make Your Reservation
       </button>
-
     </form>
   );
 }

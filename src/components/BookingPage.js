@@ -1,20 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
 
-function BookingPage({ availableTimes, dispatch }) {
-  const navigate = useNavigate();
-
-  // Submit booking data to API
-  const submitForm = (formData) => {
-    const result = window.submitAPI(formData);
-    if (result) {
-      // Navigate to confirmation on success
-      navigate("/confirmed");
-    } else {
-      alert("Booking failed. Please try again.");
-    }
-  };
-
+function BookingPage({ availableTimes, dispatch, submitForm }) {
+  console.log("BookingPage submitForm type:", typeof submitForm);
+  
   return (
     <section className="booking-page">
       <div className="booking-header">

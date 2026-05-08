@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function ConfirmedBooking() {
   return (
@@ -7,8 +7,13 @@ function ConfirmedBooking() {
         <div className="confirmed-icon">✓</div>
         <h2>Booking Confirmed!</h2>
         <p>
-          Your table has been reserved at Little Lemon. 
-          A confirmation has been sent to your email address.
+          Your table has been successfully reserved 
+          at Little Lemon. We look forward to 
+          welcoming you!
+        </p>
+        <p>
+          A confirmation has been sent to your 
+          email address.
         </p>
         <Link to="/">
           <button className="btn-primary">

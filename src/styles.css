@@ -1,48 +1,17 @@
-/* =====================
-   Booking Page
-===================== */
-.booking-page {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: var(--spacing-lg) var(--spacing-sm);
-}
-
-.booking-header {
-  margin-bottom: var(--spacing-lg);
-  text-align: center;
-}
-
-.booking-header p {
-  color: #666666;
-  margin-top: var(--spacing-xs);
-}
-
-.booking-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  background-color: var(--color-white);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-}
-
-/* =====================
-   Confirmed Booking
-===================== */
+/* Confirmed Booking Page */
 .confirmed-booking {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 60vh;
-  padding: var(--spacing-lg);
+  padding: 40px 16px;
 }
 
 .confirmed-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: 16px;
   text-align: center;
   max-width: 500px;
 }
@@ -50,33 +19,11 @@
 .confirmed-icon {
   width: 80px;
   height: 80px;
-  border-radius: var(--radius-circle);
-  background-color: var(--color-primary-green);
-  color: var(--color-primary-yellow);
+  border-radius: 50%;
+  background-color: #495E57;
+  color: #F4CE14;
   font-size: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  background-color: #EDEFEE;
-}
-
-.hero-img {
-  width: 100%;
-  max-width: 400px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 16px;
-  background-color: #EDEFEE;
-}
-
-.dish-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  background-color: #EDEFEE;
 }
