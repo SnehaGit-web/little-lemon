@@ -4,10 +4,15 @@ import BookingForm from "./BookingForm";
 function BookingPage({ availableTimes, dispatch }) {
   const navigate = useNavigate();
 
-  // Handle form submission
+  // Submit booking data to API
   const submitForm = (formData) => {
-    console.log("Booking submitted:", formData);
-    navigate("/confirmed");
+    const result = window.submitAPI(formData);
+    if (result) {
+      // Navigate to confirmation on success
+      navigate("/confirmed");
+    } else {
+      alert("Booking failed. Please try again.");
+    }
   };
 
   return (
@@ -15,7 +20,7 @@ function BookingPage({ availableTimes, dispatch }) {
       <div className="booking-header">
         <h2>Reserve a Table</h2>
         <p>
-          Book your table at Little Lemon and enjoy 
+          Book your table at Little Lemon and enjoy
           an authentic Mediterranean dining experience.
         </p>
       </div>

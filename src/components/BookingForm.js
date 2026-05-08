@@ -1,34 +1,34 @@
 import { useState } from "react";
 
 function BookingForm({ availableTimes, dispatch, submitForm }) {
-
-  // Form field state variables
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
 
-  // Handle date change and dispatch to update times
+  // Dispatch date change to update available times via API
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     setDate(selectedDate);
-    // Dispatch the date change to update available times
     dispatch({
       type: "UPDATE_TIMES",
       date: selectedDate
     });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitForm({ date, time, guests, occasion });
+    submitForm({
+      date,
+      time,
+      guests,
+      occasion
+    });
   };
 
   return (
     <form onSubmit={handleSubmit}>
 
-      {/* Date field */}
       <div className="form-group">
         <label htmlFor="res-date">
           Choose date
@@ -42,7 +42,6 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         />
       </div>
 
-      {/* Time field — populated from availableTimes prop */}
       <div className="form-group">
         <label htmlFor="res-time">
           Choose time
@@ -65,7 +64,6 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         </select>
       </div>
 
-      {/* Number of guests field */}
       <div className="form-group">
         <label htmlFor="guests">
           Number of guests
@@ -82,7 +80,6 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         />
       </div>
 
-      {/* Occasion field */}
       <div className="form-group">
         <label htmlFor="occasion">
           Occasion
@@ -98,7 +95,6 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         </select>
       </div>
 
-      {/* Submit button */}
       <button
         type="submit"
         className="btn-primary"
