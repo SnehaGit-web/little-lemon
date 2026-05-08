@@ -225,8 +225,9 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
             {errors.guests}
           </span>
         )}
+        {/* Changed hint text to avoid duplicate text with error message */}
         <span className="field-hint">
-          Maximum 10 guests per booking
+          Between 1 and 10 guests per booking
         </span>
       </div>
 
@@ -250,8 +251,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       <button
         type="submit"
         className="btn-primary"
-        disabled={!isFormValid}
-        aria-label="On Click"
+        aria-label="Make Your Reservation"
         style={{
           opacity: isFormValid ? 1 : 0.5,
           cursor: isFormValid ? 'pointer' : 'not-allowed'
