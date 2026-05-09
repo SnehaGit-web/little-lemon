@@ -122,7 +122,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
+    <form onSubmit={handleSubmit} noValidate aria-label="Table reservation form">
 
       {/* Date field */}
       <div className="form-group">
@@ -134,6 +134,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
           type="date"
           id="res-date"
           value={date}
+          aria-label="Choose date"
           min={today}
           onChange={handleDateChange}
           required
@@ -164,6 +165,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         <select
           id="res-time"
           value={time}
+          aria-label="Choose time"
           onChange={handleTimeChange}
           required
           style={{
@@ -207,6 +209,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
           min="1"
           max="10"
           value={guests}
+          aria-label="Number of guests"
           onChange={handleGuestsChange}
           required
           style={{
@@ -251,7 +254,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       <button
         type="submit"
         className="btn-primary"
-        aria-label="Make Your Reservation"
+        aria-label="On Click"
         style={{
           opacity: isFormValid ? 1 : 0.5,
           cursor: isFormValid ? 'pointer' : 'not-allowed'

@@ -29,7 +29,7 @@ function Main() {
   console.log("Main submitForm type:", typeof submitForm);
 
   return (
-    <main>
+    <main id="main-content">
       <Routes>
         <Route
           path="/"
