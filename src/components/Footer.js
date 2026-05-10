@@ -1,36 +1,14 @@
 function Footer() {
   return (
-    <footer>
-      <div>
-        <img src="/logo.png" alt="Little Lemon Logo" />
-      </div>
-      <div>
-        <h3>Navigation</h3>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/menu">Menu</a></li>
-          <li><a href="/booking">Reservations</a></li>
-          <li><a href="/order">Order Online</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <address>
-          <p>123 Mediterranean Way</p>
-          <p>Chicago, IL 60601</p>
-          <p>(312) 555-0187</p>
-          <p>info@littlelemon.com</p>
-        </address>
-      </div>
-      <div>
-        <h3>Social Media</h3>
-        <ul>
-          <li><a href="https://facebook.com">Facebook</a></li>
-          <li><a href="https://instagram.com">Instagram</a></li>
-          <li><a href="https://twitter.com">Twitter</a></li>
-        </ul>
-      </div>
+    <footer className="footer-simple">
+      <p className="footer-copyright">
+        © 2026 Little Lemon Restaurant. All rights reserved.
+      </p>
+      <p className="footer-address">
+        123 Mediterranean Way, Chicago, IL 60601 &nbsp;|&nbsp; 
+        (312) 555-0187 &nbsp;|&nbsp; 
+        info@littlelemon.com
+      </p>
     </footer>
   );
 }

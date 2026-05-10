@@ -4,28 +4,28 @@ const reviewsData = [
     name: "Sarah Mitchell",
     rating: 5,
     review: "Amazing food and so easy to book online! The Mediterranean dishes are authentic and delicious.",
-    image: "/reviewer1.jpg"
+    image: "https://randomuser.me/api/portraits/women/44.jpg"
   },
   {
     id: 2,
     name: "James Rodriguez",
     rating: 5,
     review: "Best restaurant in Chicago. The Greek salad is outstanding and the service is always friendly.",
-    image: "/reviewer2.jpg"
+    image: "https://randomuser.me/api/portraits/men/32.jpg"
   },
   {
     id: 3,
     name: "Tilly Kim",
     rating: 4,
     review: "Love the lemon dessert! Grandma's recipe really shines through. Will definitely be back.",
-    image: "/reviewer3.jpg"
+    image: "https://randomuser.me/api/portraits/women/68.jpg"
   },
   {
     id: 4,
     name: "Michael Chen",
     rating: 5,
     review: "Wonderful atmosphere and incredible food. The online reservation system made booking so simple.",
-    image: "/reviewer4.jpg"
+    image: "https://randomuser.me/api/portraits/men/75.jpg"
   }
 ];
 
