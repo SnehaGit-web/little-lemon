@@ -1,7 +1,8 @@
 # 🍋 Little Lemon Restaurant — Reserve a Table
 
 A React web application for the Little Lemon Mediterranean restaurant that allows customers to reserve a table online. Built as the capstone project for the Meta Front-End Developer Professional Certificate.
-
+# Live Demo
+https://snehagit-web.github.io/little-lemon/
 ---
 
 ## 📋 Table of Contents
